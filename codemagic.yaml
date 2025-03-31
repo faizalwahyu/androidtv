@@ -7,8 +7,6 @@ workflows:
       vars:
         PACKAGE_NAME: "com.example.livestreamtv"
       java: 17
-      android:
-        ndk: latest
     scripts:
       - name: Install dependencies
         script: |
@@ -23,4 +21,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - "dreadchief@protonmail.com"
+          - "your-email@example.com"
