@@ -1,0 +1,26 @@
+workflows:
+  android-release:
+    name: Android Release Build
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      vars:
+        PACKAGE_NAME: "com.example.livestreamtv"
+      java: 17
+      android:
+        ndk: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          cd android
+          ./gradlew dependencies
+      - name: Build APK
+        script: |
+          cd android
+          ./gradlew assembleRelease
+    artifacts:
+      - android/app/build/outputs/apk/release/app-release.apk
+    publishing:
+      email:
+        recipients:
+          - "dreadchief@protonmail.com"
