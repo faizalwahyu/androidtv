@@ -10,14 +10,12 @@ workflows:
     scripts:
       - name: Grant execute permission to Gradle wrapper
         script: |
-          chmod +x android/gradlew
+          chmod +x ./gradlew
       - name: Install dependencies
         script: |
-          cd android
           ./gradlew dependencies
       - name: Build APK
         script: |
-          cd android
           ./gradlew assembleRelease
     artifacts:
       - android/app/build/outputs/apk/release/app-release.apk
