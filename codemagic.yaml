@@ -8,15 +8,18 @@ workflows:
         PACKAGE_NAME: "com.example.livestreamtv"
       java: 17
     scripts:
+      - name: Change working directory to android
+        script: |
+          cd android
       - name: Grant execute permission to Gradle wrapper
         script: |
-          chmod +x ./gradlew
+          cd android && chmod +x gradlew
       - name: Install dependencies
         script: |
-          ./gradlew dependencies
+          cd android && ./gradlew dependencies
       - name: Build APK
         script: |
-          ./gradlew assembleRelease
+          cd android && ./gradlew assembleRelease
     artifacts:
       - android/app/build/outputs/apk/release/app-release.apk
     publishing:
