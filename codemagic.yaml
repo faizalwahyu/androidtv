@@ -8,6 +8,9 @@ workflows:
         PACKAGE_NAME: "com.example.livestreamtv"
       java: 17
     scripts:
+      - name: Grant execute permission to Gradle wrapper
+        script: |
+          chmod +x android/gradlew
       - name: Install dependencies
         script: |
           cd android
